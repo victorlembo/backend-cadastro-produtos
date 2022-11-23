@@ -1,7 +1,7 @@
 {
     "name": "backend",
     "version": "1.0.0",
-    "description": "Backend do projeto Mobile Fatec",
+    "description": "Backend do projeto Mobile de cadastro de produtos",
     "main": "api/index.js",
     "type": "module",
     "engines": {
