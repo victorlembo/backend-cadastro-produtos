@@ -2,8 +2,8 @@
 >> Projeto utilizado na disciplina de Tópicos Especiais da Fatec Itu
 
 ## Participantes do projeto
-Ed Carlos da Silva Pereira
-Paulo Clarindo
+Ed Carlos da Silva Pereira,
+Paulo Clarindo,
 Victor Hugo Lembo 
 
 ## 📦Pacotes necessários
