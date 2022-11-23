@@ -1,0 +1,13 @@
+use('FatecItu')
+db.produtos.insertOne({
+    "codigo_produto": 1,
+    "nome_produto":"Memoria Ram XPG",
+    "descricao_produto": "Memoria ram 8GB 3200mhz",
+    "valor_produto": 250.00,
+    "categoria": "Memórias"
+})
+//Criando um índice único no campo cnpj
+db.produtos.createIndex({'codigo_produto':1}, {unique: true})
+
+use('FatecItu')
+db.produtos.find({},{})

@@ -1,0 +1,53 @@
+//Teste de Requisições REST - Produtos
+@baseURL = https://backendmobile.vercel.app/api
+@id = 6357f3ec5570c95c07a669c5
+@nome_produto = capura
+###
+// GET - Lista todos os produtos
+GET {{baseURL}}/produto
+Content-Type: application/json
+
+###
+// GET - Lista apenas um produto pelo id
+GET {{baseURL}}/produto/id/{{id}}
+Content-Type: application/json
+
+###
+// GET - Lista apenas um produto pelo nome do produto
+GET {{baseURL}}/produto/nome_produto/{{nome_produto}}
+Content-Type: application/json
+
+###
+// POST - Inclui um novo produto
+POST {{baseURL}}/produto
+Content-Type: application/json
+
+{
+   "codigo_produto": 2,
+   "nome_produto": "Processador AMD Ryzen 9.",
+   "descricao_produto": "Processador Ryzen 9 7900x",
+   "valor_produto": 2500.00,
+   "categoria": "Processadores"
+}
+
+### 
+// DELETE - Apaga um produto através do id informado
+DELETE {{baseURL}}/produto/{{id}}
+Content-Type: application/json
+
+###
+// PUT - Altera um produto pelo ID
+PUT {{baseURL}}/produto
+Content-Type: application/json
+
+{
+    "_id": "6357f6c95570c95c07a669c7",
+    "codigo_produto": 1,
+    "nome_produto": "Placa Mãe Gigabite Z540",
+    "descricao_produto": "Placa Mãe AM4",
+    "valor_produto": 2000.00,
+    "categoria": "Placa mãe"
+  }
+
+
+

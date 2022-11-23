@@ -1,0 +1,277 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "📚 API Cadastro de Produtos Informática",
+    "description": "➡️Documentação gerada automaticamente pelo módulo <a href='https://github.com/davibaltar/swagger-autogen' target='_blank'>swagger-autogen</a>."
+  },
+  "host": "https://backendmobile.vercel.appm",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "apiKeyAuth": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "access-token",
+      "description": "Token de Acesso gerado após o login"
+    }
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api": {
+      "get": {
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/produtos/": {
+      "get": {
+        "tags": [
+          "Produtos"
+        ],
+        "description": "Endpoint para obter todos os Produtos do sistema.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Listagem dos produtos obtida com sucesso",
+            "schema": {
+              "$ref": "#/definitions/Produtos"
+            }
+          },
+          "500": {
+            "description": "Erro ao obter a listagem dos produtos",
+            "schema": {
+              "$ref": "#/definitions/Erro"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Produtos"
+        ],
+        "description": "Endpoint que inclui um novo produto",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "_id": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listagem dos produtos obtida com sucesso",
+            "schema": {
+              "$ref": "#/definitions/Produtos"
+            }
+          },
+          "201": {
+            "description": "Criado com sucesso"
+          },
+          "202": {
+            "description": "Alteração Aceita"
+          },
+          "400": {
+            "description": "Solicitação Inválida"
+          },
+          "403": {
+            "description": "Acesso Negado"
+          },
+          "500": {
+            "description": "Erro ao obter a listagem dos produtos",
+            "schema": {
+              "$ref": "#/definitions/Erro"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Produtos"
+        ],
+        "description": "Endpoint que permite alterar os dados do produto pelo id",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "_id": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Listagem dos produtos obtida com sucesso",
+            "schema": {
+              "$ref": "#/definitions/Produtos"
+            }
+          },
+          "201": {
+            "description": "Criado"
+          },
+          "202": {
+            "description": "Aceito"
+          },
+          "400": {
+            "description": "Solicitação Inválida"
+          },
+          "403": {
+            "description": "Acesso Negado"
+          },
+          "500": {
+            "description": "Erro ao obter a listagem dos produtos",
+            "schema": {
+              "$ref": "#/definitions/Erro"
+            }
+          }
+        }
+      }
+    },
+    "/api/produtos/id/{id}": {
+      "get": {
+        "tags": [
+          "Produtos"
+        ],
+        "description": "Endpoint que retorna os dados do produto filtrando pelo id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Solicitação Inválida"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/api/produtos/nome_produto/{nome_produto}": {
+      "get": {
+        "tags": [
+          "Produtos"
+        ],
+        "description": "Endpoint que retorna os dados do produto filtrando por parte do nome do produto",
+        "parameters": [
+          {
+            "name": "nome_produto",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Solicitação Inválida"
+          },
+          "500": {
+            "description": "Erro Interno do Servidor"
+          }
+        }
+      }
+    },
+    "/api/produtos/{id}": {
+      "delete": {
+        "tags": [
+          "Produtos"
+        ],
+        "description": "Endpoint que permite excluir um produto filtrando pelo id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Aceito"
+          },
+          "400": {
+            "description": "Solicitação Inválida"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Erro": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "example": "Erro gerado pela aplicação"
+        },
+        "msg": {
+          "type": "string",
+          "example": "Mensagem detalhando o erro"
+        },
+        "param": {
+          "type": "string",
+          "example": "URL que gerou o erro"
+        }
+      }
+    },
+    "Produtos": {
+      "type": "object",
+      "properties": {
+        "codigo_produto": {
+          "type": "number",
+          "example": "1"
+        },
+        "nome_produto": {
+          "type": "string",
+          "example": "Fonte Atx"
+        },
+        "descricao_produto": {
+          "type": "string",
+          "example": "Fonte de 1000 watts"
+        },
+        "valor_produto": {
+          "type": "number",
+          "example": "2019-05-24"
+        },
+        "categoria": {
+          "type": "string",
+          "example": "Fontes"
+        }
+      }
+    }
+  }
+}
