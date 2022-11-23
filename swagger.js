@@ -8,7 +8,7 @@ const doc = {
         title: "📚 API Cadastro de Produtos Informática",
         description: "➡️Documentação gerada automaticamente pelo módulo <a href='https://github.com/davibaltar/swagger-autogen' target='_blank'>swagger-autogen</a>."
     },
-    host: 'https://backendmobile.vercel.appm',
+    host: 'https://backend-cadastro-produtos.vercel.app/api',
     basePath: "/",
     schemes: ['https'],
     consumes: ['application/json'],
