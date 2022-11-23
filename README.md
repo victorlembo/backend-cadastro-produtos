@@ -2,8 +2,8 @@
 >> Projeto utilizado na disciplina de Tópicos Especiais da Fatec Itu
 
 ## Participantes do projeto
-Ed Carlos da Silva Pereira
-Paulo Clarindo
+Ed Carlos da Silva Pereira,
+Paulo Clarindo,
 Victor Hugo Lembo 
 
 ## 📦Pacotes necessários
@@ -29,14 +29,7 @@ Ele é um módulo de dependência que carrega variáveis de ambiente de um arqui
 As variáveis de ambiente ajudam a definir valores que não queremos codificar diretamente em nosso código fonte.
 
 ## Projeto Online
-Acesse: https://backendmobile.vercel.app/
-Ou efetue o deploy diretamente na sua conta Vercel
- [![Faça o Deploy com Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/fatecitu/backendMobile)
+Acesse: https://backend-cadastro-produtos.vercel.app/
 
- Não esqueça de informar em Enviroment, os seguintes itens:
-```
-PORT = 9002
-MONGODB_URI = mongodb+srv://usuario:senha@url-do-cluster
-MONGODB_DB = FatecItu
 ```
 
