@@ -17,7 +17,7 @@ const { db, ObjectId } = await connectToDatabase()
     .isNumeric().withMessage('O codigo do produto não pode conter caracteres especiais, apenas números')
     .isLength({ min: 1, max: 5 }).withMessage('O tamanho do codigo do produto informado é inválido.')
     .custom((value, { req }) => {
-      return db.collection(nomeCollection).find({ cnpj: { $eq: value } }).toArray()
+      return db.collection(nomeCollection).find({ codigo_produto: { $eq: value } }).toArray()
         .then((codigo_produto) => {
           if (codigo_produto.length && !req.body._id) {
             return Promise.reject(`O codigo do produto ${value} já está informado em outro produto`)
@@ -30,7 +30,12 @@ const { db, ObjectId } = await connectToDatabase()
         .isLength({ min: 3 }).withMessage('O nome do produto é muito curto. Informe ao menos 3 caracteres')
         .isLength({ max: 100 }).withMessage('O nome do produto é muito longo. Informe no máximo até 100 caracteres'),
     check('valor_produto', 'O valor do produto só deve ser número').isNumeric(),
-    check('descricao_produto').optional({nullable: true})    
+    check('descricao_produto').optional({nullable: true}),
+    check('categoria')
+        .not().isEmpty().trim().withMessage('É obrigatório informar a categoria do produto')
+        .isAlphanumeric('pt-BR', { ignore: '/. ' }).withMessage('A categoria do produto deve conter apenas caracteres alfanuméricos')
+        .isLength({ min: 3 }).withMessage('A categoria do produto é muito curto. Informe ao menos 3 caracteres')
+        .isLength({ max: 30 }).withMessage('A categoria do produto é muito longo. Informe no máximo até 30 caracteres'),
 ]
 
 
