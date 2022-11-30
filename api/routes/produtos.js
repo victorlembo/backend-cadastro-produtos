@@ -29,7 +29,9 @@ const { db, ObjectId } = await connectToDatabase()
         .isAlphanumeric('pt-BR', { ignore: '/. ' }).withMessage('O nome do produto deve conter apenas caracteres alfanuméricos')
         .isLength({ min: 3 }).withMessage('O nome do produto é muito curto. Informe ao menos 3 caracteres')
         .isLength({ max: 100 }).withMessage('O nome do produto é muito longo. Informe no máximo até 100 caracteres'),
-    check('valor_produto', 'O valor do produto só deve ser número').isNumeric(),
+    check('valor_produto', 'O valor do produto só deve ser número')
+    .isNumeric()
+    .not().isEmpty().trim().withMessage('É obrigatório informar o nome do produto'),
     check('descricao_produto').optional({nullable: true}),
     check('categoria')
         .not().isEmpty().trim().withMessage('É obrigatório informar a categoria do produto')

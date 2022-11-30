@@ -6,7 +6,7 @@ db.produtos.insertOne({
     "valor_produto": 250.00,
     "categoria": "Memórias"
 })
-//Criando um índice único no campo cnpj
+//Criando um índice único no campo codigo do produto
 db.produtos.createIndex({'codigo_produto':1}, {unique: true})
 
 use('FatecItu')
